@@ -6,8 +6,7 @@
 (defun provider-name () 'clean)
 (defun short-desc () "The LFE rebar3 'clean' plugin.")
 (defun deps ()
-  '(#(default app_discovery)
-    #(default clean)))
+  '(#(default app_discovery)))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ;;; Public API
