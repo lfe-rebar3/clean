@@ -1,0 +1,11 @@
+{application, 'lfe-clean',
+ [{description, "The LFE rebar3 'clean' plugin"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []}
+ ]}.
