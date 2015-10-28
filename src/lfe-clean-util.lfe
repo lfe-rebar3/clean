@@ -3,3 +3,10 @@
 
 (defun noop ()
   'noop)
+
+(defun rm-file (filename)
+  'noop)
+
+(defun rm-dir (dirname)
+  'noop)
+

@@ -6,8 +6,7 @@
 (defun provider-name () 'clean)
 (defun short-desc () "The LFE rebar3 'clean' plugin.")
 (defun deps ()
-  '(#(default app_discovery)
-    #(default clean)))
+  '(#(default app_discovery)))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ;;; Public API
@@ -40,6 +39,6 @@
 (defun info (desc)
   (io_lib:format
     (++ "~n~s~n~n"
-        "Remove LFE files and others not removed by 'rebar3 clean'.~n"
+        "Remove files not removed by 'rebar3 clean'.~n"
         "~n")
     `(,desc)))
