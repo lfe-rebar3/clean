@@ -26,7 +26,7 @@
     `#(ok ,(rebar_state:add_provider state provider))))
 
 (defun do (state)
-  (lfe_io:format "~Cleaning ..." '())
+  (lfe_io:format "~Cleaning~p ..." '())
   `#(ok ,state))
 
 (defun format_error (reason)
