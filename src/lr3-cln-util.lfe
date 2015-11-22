@@ -27,22 +27,23 @@
        (ensure-dirs)))
 
 (defun expand-globs (items)
-  (rebar_api:info "Expanding wildcard values ..." '())
+  (rebar_api:debug "Expanding wildcard values ..." '())
   (->> items
        (lists:map #'filelib:wildcard/1)
        (lists:append)))
 
 (defun ensure-absolute (state item)
-  (rebar_api:info "Coercing ~p to an absolute path ..." `(,item))
-  (rebar_api:info "Current directory: ~p" `(,(rebar_state:dir state)))
-  item)
+  (let ((dir (rebar_state:dir state)))
+    (rebar_api:debug "Coercing ~p to an absolute path ..." `(,item))
+    (rebar_api:debug "Current directory: ~p" `(,dir))
+    (filename:join dir item)))
 
 (defun ensure-files (files)
-  (rebar_api:info "Keeping only items that are files ..." '())
+  (rebar_api:debug "Keeping only items that are files ..." '())
   (lists:filtermap #'get-file/1 files))
 
 (defun ensure-dirs (dirs)
-  (rebar_api:info "Keeping only items that are directories ..." '())
+  (rebar_api:debug "Keeping only items that are directories ..." '())
   (lists:filtermap #'get-dir/1 dirs))
 
 (defun get-file (file)
