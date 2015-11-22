@@ -1,7 +1,7 @@
-(defmodule lfe-clean-util
+(defmodule lr3-cln-util
   (export all))
 
-(defun noop ()
+(defun clean (state)
   'noop)
 
 (defun rm-file (filename)

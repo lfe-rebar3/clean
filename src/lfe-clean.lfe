@@ -4,7 +4,7 @@
 
 (defun namespace () 'lfe)                   ; All LFE plugsin need to have this
 (defun provider-name () 'clean)
-(defun short-desc () "The LFE rebar3 'clean' plugin.")
+(defun short-desc () "The LFE rebar3 clean plugin.")
 (defun deps ()
   '(#(default app_discovery)))
 
@@ -27,6 +27,7 @@
 
 (defun do (state)
   (lfe_io:format "Cleaning ..." '())
+  (lr3-cln-util:clean state)
   `#(ok ,state))
 
 (defun format_error (reason)
