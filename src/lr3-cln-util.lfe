@@ -9,10 +9,12 @@
     (lists:foreach #'rm-dir/1 (check-dirs state dirs))))
 
 (defun rm-file (filename)
-  (rebar_api:console " ~~~~> \tRemoving file ~s ..." `(,filename)))
+  (rebar_api:console " ~~~~> \tRemoving file ~s ..." `(,filename))
+  (os:cmd (++ "rm " filename)))
 
 (defun rm-dir (dirname)
-  (rebar_api:console " ~~~~> \tRemoving directory ~s ..." `(,dirname)))
+  (rebar_api:console " ~~~~> \tRemoving directory ~s ..." `(,dirname))
+  (os:cmd (++ "rm -rf " dirname)))
 
 (defun check-files (state files)
   (->> files

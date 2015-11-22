@@ -43,6 +43,8 @@
 (defun info (desc)
   (io_lib:format
     (++ "~n~s~n~n"
-        "Remove files not removed by 'rebar3 clean'.~n"
+        "Remove files not removed by 'rebar3 clean'. This operation is "
+        "destructive! It will recursively remove the configured "
+        "directories!~n"
         "~n")
     `(,desc)))
