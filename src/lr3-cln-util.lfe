@@ -21,7 +21,8 @@
        (ensure-dirs)))
 
 (defun ensure-absolute (state item)
-  (rebar_api:info "Coercing ~p to an absolute path ..." `(,item)))
+  (rebar_api:info "Coercing ~p to an absolute path ..." `(,item))
+  item)
 
 (defun rm-file (filename)
   (rebar_api:console " ~~~~> \tRemoving file ~s ..." `(,filename)))
@@ -30,10 +31,13 @@
   (rebar_api:console " ~~~~> \tRemoving directory ~s ..." `(,dirname)))
 
 (defun ensure-files (files)
-  (rebar_api:info "Keeping only items that are files ..." '()))
+  (rebar_api:info "Keeping only items that are files ..." '())
+  files)
 
 (defun ensure-dirs (dirs)
-  (rebar_api:info "Keeping only items that are directories ..." '()))
+  (rebar_api:info "Keeping only items that are directories ..." '())
+  dirs)
 
 (defun expand-globs (items)
-  (rebar_api:info "Expanding wildcard values ..." '()))
+  (rebar_api:info "Expanding wildcard values ..." '())
+  items)
