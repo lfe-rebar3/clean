@@ -8,8 +8,8 @@
 (defun deps ()
   '(#(default app_discovery)))
 (defun items-to-clean ()
-  '(#(files ())
-    #(dirs ())))
+  '(#(files ("rebar.lock" "erl_crash.dump" "ebin/*.beam"))
+    #(dirs ("_build" "deps" ".rebar" ."rebar3"))))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ;;; Public API
