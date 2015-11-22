@@ -30,10 +30,10 @@
   (rebar_api:console " ~~~~> \tRemoving directory ~s ..." `(,dirname)))
 
 (defun ensure-files (files)
-  (rebar_api:info "Keeping only items that are files ..."))
+  (rebar_api:info "Keeping only items that are files ..." '()))
 
 (defun ensure-dirs (dirs)
-  (rebar_api:info "Keeping only items that are directories ..."))
+  (rebar_api:info "Keeping only items that are directories ..." '()))
 
 (defun expand-globs (items)
-  (rebar_api:info "Expanding wildcard values ..."))
+  (rebar_api:info "Expanding wildcard values ..." '()))
