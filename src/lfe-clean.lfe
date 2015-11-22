@@ -7,6 +7,9 @@
 (defun short-desc () "The LFE rebar3 clean plugin.")
 (defun deps ()
   '(#(default app_discovery)))
+(defun items-to-clean ()
+  '(#(files ())
+    #(dirs ())))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ;;; Public API
@@ -27,7 +30,7 @@
 
 (defun do (state)
   (lfe_io:format "Cleaning ..." '())
-  (lr3-cln-util:clean state)
+  (lr3-cln-util:clean state (items-to-clean))
   `#(ok ,state))
 
 (defun format_error (reason)
