@@ -28,9 +28,9 @@
 
 (defun expand-globs (items)
   (rebar_api:info "Expanding wildcard values ..." '())
-  (-> items
-      (lists:map #'filelib:wildcard/1)
-      (lists:append)))
+  (->> items
+       (lists:map #'filelib:wildcard/1)
+       (lists:append)))
 
 (defun ensure-absolute (state item)
   (rebar_api:info "Coercing ~p to an absolute path ..." `(,item))
