@@ -29,7 +29,7 @@
     `#(ok ,(rebar_state:add_provider state provider))))
 
 (defun do (state)
-  (lfe_io:format "Cleaning ..." '())
+  (rebar_api:info "~~~~~~> Cleaning up files and directories" '())
   (lr3-cln-util:clean state (items-to-clean))
   `#(ok ,state))
 
