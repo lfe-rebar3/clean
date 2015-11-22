@@ -32,11 +32,11 @@
        (lists:map #'filelib:wildcard/1)
        (lists:append)))
 
-(defun ensure-absolute (state item)
+(defun ensure-absolute (state items)
   (let ((dir (rebar_state:dir state)))
-    (rebar_api:debug "Coercing ~p to an absolute path ..." `(,item))
+    (rebar_api:debug "Coercing elements of ~p to absolute path ..." `(,items))
     (rebar_api:debug "Current directory: ~p" `(,dir))
-    (filename:join dir item)))
+    (lists:map (lambda (x) (filename:join dir x)) items)))
 
 (defun ensure-files (files)
   (rebar_api:debug "Keeping only items that are files ..." '())
