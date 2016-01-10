@@ -27,6 +27,9 @@
 
 (defun do (state)
   (lfe_io:format "Cleaning ..." '())
+  (let ((base-dir (rebar_dir:base_dir state))
+        (to-remove '("_build" "rebar.lock" "erl_crash.dump" "ebin")))
+    (rebar_api:debug base-dir))
   `#(ok ,state))
 
 (defun format_error (reason)
