@@ -4,9 +4,12 @@
 
 (defun namespace () 'lfe)                   ; All LFE plugsin need to have this
 (defun provider-name () 'clean)
-(defun short-desc () "The LFE rebar3 'clean' plugin.")
+(defun short-desc () "The LFE rebar3 clean plugin.")
 (defun deps ()
   '(#(default app_discovery)))
+(defun items-to-clean ()
+  '(#(files ("rebar.lock" "erl_crash.dump" "ebin/*.beam"))
+    #(dirs ("_build" "deps" ".rebar" ".rebar3"))))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ;;; Public API
@@ -26,10 +29,8 @@
     `#(ok ,(rebar_state:add_provider state provider))))
 
 (defun do (state)
-  (lfe_io:format "Cleaning ..." '())
-  (let ((base-dir (rebar_dir:base_dir state))
-        (to-remove '("_build" "rebar.lock" "erl_crash.dump" "ebin")))
-    (rebar_api:debug base-dir))
+  (rebar_api:info "Cleaning up files and directories" '())
+  (lr3-cln-util:clean state (items-to-clean))
   `#(ok ,state))
 
 (defun format_error (reason)
@@ -42,6 +43,7 @@
 (defun info (desc)
   (io_lib:format
     (++ "~n~s~n~n"
-        "Remove files not removed by 'rebar3 clean'.~n"
-        "~n")
+        "Delete files not removed by 'rebar3 clean'. ~n"
+        "This operation is destructive! It will delete files~n"
+        "and recursively remove the configured directories!~n~n")
     `(,desc)))
