@@ -2,13 +2,12 @@
   (behaviour provider)
   (export all))
 
-(defun namespace () 'lfe)                   ; All LFE plugsin need to have this
+(defun namespace () 'lfe)
 (defun provider-name () 'clean)
 (defun short-desc () "The LFE rebar3 clean plugin.")
-(defun deps ()
-  '(#(default app_discovery)))
+(defun deps () '(#(default app_discovery)))
 (defun items-to-clean ()
-  '(#(files ("rebar.lock" "erl_crash.dump" "ebin/*.beam"))
+  '(#(files ("rebar.lock" "erl_crash.dump" "ebin/*.beam" "*.beam"))
     #(dirs ("_build" "deps" ".rebar" ".rebar3"))))
 
 ;;;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
