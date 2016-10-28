@@ -1,8 +1,6 @@
 (defmodule lr3-cln-util
   (export all))
 
-(include-lib "clj/include/compose.lfe")
-
 (defun clean
   ((state `(#(files ,files) #(dirs ,dirs)))
     (lists:foreach #'rm-file/1 (check-files state files))
@@ -17,22 +15,22 @@
   (os:cmd (++ "rm -rf " dirname)))
 
 (defun check-files (state files)
-  (->> files
-       (expand-globs)
-       (ensure-absolute state)
-       (ensure-files)))
+  (clj:->> files
+           (expand-globs)
+           (ensure-absolute state)
+           (ensure-files)))
 
 (defun check-dirs (state dirs)
-  (->> dirs
-       (expand-globs)
-       (ensure-absolute state)
-       (ensure-dirs)))
+  (clj:->> dirs
+           (expand-globs)
+           (ensure-absolute state)
+           (ensure-dirs)))
 
 (defun expand-globs (items)
   (rebar_api:debug "Expanding wildcard values ..." '())
-  (->> items
-       (lists:map #'filelib:wildcard/1)
-       (lists:append)))
+  (clj:->> items
+           (lists:map #'filelib:wildcard/1)
+           (lists:append)))
 
 (defun ensure-absolute (state items)
   (let ((dir (rebar_state:dir state)))
