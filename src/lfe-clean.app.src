@@ -1,11 +1,20 @@
 {application, 'lfe-clean',
  [{description, "The LFE rebar3 clean plugin"},
-  {vsn, "0.3.0"},
+  {vsn, "0.4.0-rc1"},
   {registered, []},
   {applications,
    [kernel,
     stdlib
    ]},
   {env,[]},
-  {modules, []}
+  {modules, []},
+  %% Package metadata:
+  {pkg_name, rebar3_lfe_clean},
+  {maintainers, ["Duncan McGreggor"]},
+  {licenses, ["BSD-3"]},
+  {links,
+   [{"GitHub", "https://github.com/lfex/clean"},
+    {"Gitlab", "https://gitlab.com/lfex/clean"},
+    {"Hex", "https://hex.pm/packages/rebar3_lfe_clean"}
+   ]}
  ]}.
