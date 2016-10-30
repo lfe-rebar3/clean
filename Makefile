@@ -15,12 +15,27 @@ push-tags:
 push-all: push push-tags
 
 build-github: clean
+	@echo
+	@echo "============================="
+	@echo "Building using Github Sources ..."
+	@echo "============================="
+	@echo
 	rebar3 compile
 
 build-gitlab: clean
+	@echo
+	@echo "============================="
+	@echo "Building using Gitlab Sources ..."
+	@echo "============================="
+	@echo
 	rebar3 as gitlab compile
 
 build-hexpm: clean
+	@echo
+	@echo "=============================="
+	@echo "Building using Hex.pm Packages ..."
+	@echo "=============================="
+	@echo
 	rebar3 as hexpm compile
 
 build-all: build-github build-gitlab build-hexpm
