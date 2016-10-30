@@ -46,4 +46,5 @@ build-hexpm: clean
 build-all: build-github build-gitlab build-hexpm
 
 publish: clean
+	rebar3 as hexpm lock
 	rebar3 as hexpm hex publish
