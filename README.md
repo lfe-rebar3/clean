@@ -1,10 +1,14 @@
 # lfe-clean
 
-[![Build Status][travis badge]][travis] [![LFE Versions][lfe badge]][lfe] [![Erlang Versions][erlang badge]][versions] [![Tags][github tags badge]][github tags] [![Downloads][hex downloads]][hex package]
-
-*The LFE rebar3 clean plugin*
+[![Build Status][travis badge]][travis]
+[![LFE Versions][lfe badge]][lfe]
+[![Erlang Versions][erlang badge]][versions]
+[![Tags][github tags badge]][github tags]
+[![Downloads][hex downloads]][hex package]
 
 [![][lr3-logo]][lr3-logo]
+
+*The LFE rebar3 clean plugin*
 
 
 #### Contents
