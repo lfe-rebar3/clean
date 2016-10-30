@@ -23,6 +23,7 @@ build-github: clean
 	@echo "============================="
 	@echo
 	rebar3 compile
+	rebar3 lock
 
 build-gitlab: clean
 	@echo
@@ -31,6 +32,7 @@ build-gitlab: clean
 	@echo "============================="
 	@echo
 	rebar3 as gitlab compile
+	rebar3 as gitlab lock
 
 build-hexpm: clean
 	@echo
@@ -39,6 +41,7 @@ build-hexpm: clean
 	@echo "=============================="
 	@echo
 	rebar3 as hexpm compile
+	rebar3 as hexpm lock
 
 build-all: build-github build-gitlab build-hexpm
 
