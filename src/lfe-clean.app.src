@@ -2,12 +2,9 @@
  [{description, "The LFE rebar3 clean plugin"},
   {vsn, "0.4.0-rc1"},
   {registered, []},
-  {applications,
-   [kernel,
-    stdlib
-   ]},
+  {applications, [kernel, stdlib, lfe]},
   {env,[]},
-  {modules, []},
+  {modules, ['lfe-clean', 'lr3-cln-util']},
   %% Package metadata:
   {pkg_name, rebar3_lfe_clean},
   {maintainers, ["Duncan McGreggor"]},
