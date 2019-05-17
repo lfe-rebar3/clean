@@ -33,15 +33,18 @@ Add the required plugins and provider hooks to your ``rebar.config``:
 ```erlang
 {plugins, [
   {'lfe-compile', ".*",
-    {git, "https://github.com/lfe-rebar3/compile.git", {tag, "0.4.0"}}},
+    {git, "https://github.com/lfe-rebar3/compile.git", {branch, "master"}}},
   {'lfe-clean', ".*",
-    {git, "https://github.com/lfe-rebar3/clean.git", {tag, "0.2.1"}}}
+    {git, "https://github.com/lfe-rebar3/clean.git", {branch, "master"}}}
 ]}.
 
 {provider_hooks, [
    {pre, [{compile, {lfe, compile}}]}
   ]}.
 ```
+
+While the above example shows the use of the master branch, you may want to 
+pin to a specific tag instead.
 
 Then just call your plugin directly from your project directory:
 
@@ -75,7 +78,7 @@ $ rebar3 lfe clean
 
 BSD 3-Clause License
 
-Copyright © 2015-2016, Duncan McGreggor <oubiwann@gmail.com>
+Copyright © 2015-2019, Duncan McGreggor <oubiwann@gmail.com>
 
 
 <!-- Named page links below: /-->
@@ -87,8 +90,8 @@ Copyright © 2015-2016, Duncan McGreggor <oubiwann@gmail.com>
 [travis]: https://travis-ci.org/lfe-rebar3/clean
 [travis badge]: https://img.shields.io/travis/lfe-rebar3/clean.svg
 [lfe]: https://github.com/rvirding/lfe
-[lfe badge]: https://img.shields.io/badge/lfe-1.2.0-blue.svg
-[erlang badge]: https://img.shields.io/badge/erlang-R15%20to%2019.1-blue.svg
+[lfe badge]: https://img.shields.io/badge/lfe-1.3.0-blue.svg
+[erlang badge]: https://img.shields.io/badge/erlang-17.5%20to%2022.0-blue.svg
 [versions]: https://github.com/lfe-rebar3/clean/blob/master/.travis.yml
 [github tags]: https://github.com/lfe-rebar3/clean/tags
 [github tags badge]: https://img.shields.io/github/tag/lfe-rebar3/clean.svg
